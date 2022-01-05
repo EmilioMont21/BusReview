@@ -1,0 +1,133 @@
+﻿<Page
+    x:Class="BusReviewCRUD2._0.View.Buses"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BusReviewCRUD2._0.Models"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="190"/>
+            <ColumnDefinition Width="190"/>
+            <ColumnDefinition Width="170"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="9" Grid.Row="1" Background="#4eff91" CornerRadius="20">
+            <TextBlock Text="Buses" FontSize="35" Foreground="White" HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" FontWeight="Bold"/>
+        </StackPanel>
+
+        <ListView Margin="0,10,0,0" x:Name="Lista" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="7">
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" BorderBrush="#4eff91" BorderThickness="2">
+                        <TextBlock Text="ID" FontSize="25" Width="50" Foreground="Black" Margin="10,0,0,0"/>
+                        <TextBlock Text="Placa" FontSize="25" Width="120" Foreground="Black" Margin="10,0,0,0"/>
+                        <TextBlock Text="Cooperativa" FontSize="25" Width="230" Foreground="Black" Margin="10,0,0,0"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:Bus">
+                    <StackPanel Orientation="Horizontal" PointerPressed="Bus_PointerPressed">
+                        <TextBlock Text="{x:Bind BusId}" Width="50" Foreground="Black" FontSize="25" Margin="10,0,0,0"/>
+                        <TextBlock Text="{x:Bind Placa}" Width="120" Foreground="Black" FontSize="25" Margin="10,0,0,0"/>
+                        <TextBlock Text="{x:Bind Cooperativa}" Width="230" Foreground="Black" FontSize="25" Margin="10,0,0,0"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <TextBlock Grid.Column="5" Grid.Row="4" HorizontalAlignment="Left" Foreground="Black" Text="Placa :"
+                   TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="110" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Grid.Column="5" Grid.Row="5" HorizontalAlignment="Left" Foreground="Black" Text="Chofer :"
+                   TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="110" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Grid.Column="5" Grid.Row="6" HorizontalAlignment="Left"  Foreground="Black" Text="Asistente :"
+                   TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="148" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Grid.Column="5" Grid.Row="8" HorizontalAlignment="Left"  Foreground="Black" Text="WIFI:"
+                   TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="260" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Grid.Column="5" Grid.Row="7" HorizontalAlignment="Left" Foreground="Black" Text="Cooperativa :"
+                   TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="162" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Grid.Column="7" Grid.Row="4" HorizontalAlignment="Left" Foreground="Black" Text="Marca :"
+                   TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="110" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Grid.Column="7" Grid.Row="5" HorizontalAlignment="Left" Foreground="Black" Text="Cedula Chofer :"
+                   TextWrapping="Wrap" VerticalAlignment="Top" Height="88" Width="119" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Grid.Column="7" Grid.Row="6" HorizontalAlignment="Left"  Foreground="Black" Text="Cedula Asistente :"
+                   TextWrapping="Wrap" VerticalAlignment="Top" Height="87" Width="150" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Grid.Column="7" Grid.Row="7" HorizontalAlignment="Left" Foreground="Black" Text="Sector :"
+                   TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="162" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Grid.Column="5" Grid.Row="9" HorizontalAlignment="Left" Foreground="Black" Text="Asientos discapacitados :"
+                   TextWrapping="Wrap" VerticalAlignment="Top"  FontSize="25" FontWeight="Bold"/>
+        <TextBlock Grid.Column="7" Grid.Row="8" HorizontalAlignment="Left"  Foreground="Black" Text="TV:"
+                   TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="260" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Grid.Column="7" Grid.Row="9" HorizontalAlignment="Left"  Foreground="Black" Text="Baño:"
+                   TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="260" FontSize="25" FontWeight="Bold"/>
+
+        <TextBox x:Name="txtBusId" HorizontalAlignment="Left" Margin="1055,50,0,0" Text="0" TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Height="50" Width="230" Visibility="Collapsed"/>
+
+        <TextBox Grid.Column="6" Grid.Row="4" x:Name="txtPlaca" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Height="50" Width="175" FontSize="25" Background="#8cffc2" Foreground="Black" />
+        <TextBox Grid.Column="6" Grid.Row="5" x:Name="txtNombreC" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Height="50" Width="175" FontSize="25" Background="#8cffc2" Foreground="Black"/>
+        <TextBox Grid.Column="6" Grid.Row="6" x:Name="txtNombreA" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Height="50" Width="175" FontSize="25" Background="#8cffc2" Foreground="Black"/>
+        <TextBox Grid.Column="6" Grid.Row="7" x:Name="txtCooperativa" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Height="50" Width="175" FontSize="25" Background="#8cffc2" Foreground="Black"/>
+        <TextBox Grid.Column="8" Grid.Row="4" x:Name="txtMarca" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Height="50" Width="175" FontSize="25" Background="#8cffc2" Foreground="Black" />
+        <TextBox Grid.Column="8" Grid.Row="5" x:Name="txtCedulaC" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Height="50" Width="175" FontSize="25" Background="#8cffc2" Foreground="Black"/>
+        <TextBox Grid.Column="8" Grid.Row="6" x:Name="txtCedulaA" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Height="50" Width="175" FontSize="25" Background="#8cffc2" Foreground="Black"/>
+        <TextBox Grid.Column="8" Grid.Row="7" x:Name="txtSector" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Height="50" Width="175" FontSize="25" Background="#8cffc2" Foreground="Black"/>
+
+        <CheckBox Grid.Column="6" Grid.Row="8" x:Name="cbWifi" Foreground="Black"  
+                  VerticalAlignment="Top" Background="#00cb62"  />
+        <CheckBox Grid.Column="8" Grid.Row="8" x:Name="cbTv" Foreground="Black"  
+                  VerticalAlignment="Top" Background="#00cb62" />
+        <CheckBox Grid.Column="6" Grid.Row="9" x:Name="cbAsientos" Foreground="Black"  
+                  VerticalAlignment="Top" Background="#00cb62" />
+        <CheckBox Grid.Column="8" Grid.Row="9" x:Name="cbBano" Foreground="Black"  
+                  VerticalAlignment="Top" Background="#00cb62" />
+
+        <Button Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Content="Cargar Usuarios" Background="#00cb62"
+                Click="CargarBuses_Click" Height="110" Width="450" HorizontalAlignment="Center" CornerRadius="20" />
+
+        <Button Content="Nuevo Bus" Background="#00cb62" Grid.Column="5" Grid.Row="10" 
+                VerticalAlignment="Top" Height="72" Width="163" Click="NuevoBus_Click"
+                CornerRadius="20"/>
+        <Button Content="Guardar Bus" Background="#00cb62" Grid.Column="7" Grid.Row="10" 
+                VerticalAlignment="Top" Height="72" Width="163" Click="GuardarBus_Click"
+                CornerRadius="20"/>
+        <Button Content="Eliminar Bus" Background="Red" Grid.Column="8" Grid.Row="10" 
+                VerticalAlignment="Top" Height="72" Width="163" Click="EliminarBus_Click"
+                CornerRadius="20" />
+    </Grid>
+</Page>

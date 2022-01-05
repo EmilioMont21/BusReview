@@ -1,0 +1,85 @@
+﻿<Page
+    x:Class="BusReviewCRUD2._0.View.Menu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BusReviewCRUD2._0.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="#272537">
+
+        <StackPanel>
+            <TextBlock Text="BusReview" Foreground="White" FontSize="50"
+                   HorizontalAlignment="Center" Margin="0,50,0,20" FontWeight="ExtraBlack"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,30,0,10">
+                <Border Width="1000" Height="200">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                            <GradientStop Color="#5bc3ff" Offset="0.0"/>
+                            <GradientStop Color="#3aa0ff" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+
+                    <Grid>
+                        <StackPanel>
+                            <TextBlock Text="Registro de información útil para los usuarios que esperan un bus en Quito"
+                                   Foreground="White" FontSize="25" FontWeight="Bold" Margin="20,10,10,0"/>
+                            <TextBlock Text="Mira todas las unidades registradas en nuestra plataforma &#x0a;junto a sus reseñas y calificaciones respectivas"
+                                   Foreground="White" FontSize="18" Margin="20,10,10,0" Height="60" Width="580" HorizontalAlignment="Left"/>
+                            <TextBlock Text="Observa todas las paradas y reseñas  &#xA;que son recorridas por nuestras unidades"
+                                   Foreground="White" FontSize="18"  Height="136" Width="580" HorizontalAlignment="Left" Margin="20,10,10,0"/>
+                        </StackPanel>
+
+                        <Image Width="656" Height="364" Source="/IMG/busR.png"
+                           HorizontalAlignment="Left" VerticalAlignment="Top"
+                           Margin="600,-62,0,0"/>
+                    </Grid>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,100,0,0">
+                <Border Width="250" Height="250" Background="#4eff91" CornerRadius="10" Margin="20">
+                    <Grid>
+                        <StackPanel>
+                            <TextBlock Text="Buses" Foreground="White" FontSize="75"  FontWeight="Bold"  HorizontalAlignment="Center"  Margin="0,65,0,0"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border Width="250" Height="250" Background="#ecff4e" CornerRadius="10" Margin="20">
+                    <Grid>
+                        <StackPanel>
+                            <TextBlock Text="Paradas" Foreground="White" FontSize="60"  FontWeight="Bold"  HorizontalAlignment="Center" Margin="0,80,0,0"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border Width="250" Height="250" Background="#844eff" CornerRadius="10" Margin="20">
+                    <Grid>
+                        <StackPanel>
+                            <TextBlock Text="Reportes" Foreground="White" FontSize="55"  FontWeight="Bold"  HorizontalAlignment="Center" Margin="0,80,0,0"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border Width="250" Height="250" Background="#ffc554" CornerRadius="10" Margin="20">
+                    <Grid>
+                        <StackPanel>
+                            <TextBlock Text="Reseñas" Foreground="White" FontSize="60"  FontWeight="Bold"  HorizontalAlignment="Center" Margin="0,75,0,0"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border Width="250" Height="250" Background="#4e99ff" CornerRadius="10" Margin="20">
+                    <Grid>
+                        <StackPanel>
+                            <TextBlock Text="Usuarios" Foreground="White" FontSize="55"  FontWeight="Bold"  HorizontalAlignment="Center" Margin="0,80,0,0"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                
+            </StackPanel>
+            
+        </StackPanel>
+
+    </Grid>
+</Page>

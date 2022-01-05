@@ -1,0 +1,104 @@
+﻿<Page
+    x:Class="BusReviewCRUD2._0.View.Paradas"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BusReviewCRUD2._0.Models"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="6" Grid.Row="1" Background="#ecff4e" CornerRadius="20">
+            <TextBlock Text="Paradas" FontSize="35" Foreground="White" HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" FontWeight="Bold"/>
+        </StackPanel>
+
+        <ListView Margin="0,10,0,0" x:Name="Lista" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="7">
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" BorderBrush="#b6cc00" BorderThickness="2">
+                        <TextBlock Text="ID" FontSize="25" Width="50" Foreground="Black" Margin="10,0,0,0"/>
+                        <TextBlock Text="Nombre" FontSize="25" Width="180" Foreground="Black" Margin="10,0,0,0"/>
+                        <TextBlock Text="Sector" FontSize="25" Width="180" Foreground="Black" Margin="10,0,0,0"/>
+
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:Parada">
+                    <StackPanel Orientation="Horizontal" PointerPressed="Parada_PointerPressed">
+                        <TextBlock Text="{x:Bind ParadaId}" Width="50" Foreground="Black" FontSize="25" Margin="10,0,0,0"/>
+                        <TextBlock Text="{x:Bind Nombre}" Width="180" Foreground="Black" FontSize="25" Margin="10,0,0,0"/>
+                        <TextBlock Text="{x:Bind Sector}" Width="180" Foreground="Black" FontSize="25" Margin="10,0,0,0"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Content="Cargar Reseñas" Background="#b6cc00"
+                Click="CargarParada_Click" Height="110" Width="450" HorizontalAlignment="Center" CornerRadius="20" />
+
+        <TextBlock Grid.Column="5" Grid.Row="4" HorizontalAlignment="Left" Foreground="Black" Text="Nombre :"
+                   TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="110" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Grid.Column="5" Grid.Row="5" HorizontalAlignment="Left" Foreground="Black" Text="Sector :"
+                   TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="110" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Grid.Column="5" Grid.Row="6" HorizontalAlignment="Left"  Foreground="Black" Text="Costo :"
+                   TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="110" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Grid.Column="5" Grid.Row="8" HorizontalAlignment="Left"  Foreground="Black" Text="Calle Secundaria :"
+                   TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="260" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Grid.Column="5" Grid.Row="6" HorizontalAlignment="Left" Foreground="Black" Text="Calle Principal :"
+                   TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="209" FontSize="25" FontWeight="Bold" 
+                   Margin="0,121,0,0" Grid.RowSpan="2"/>
+
+
+        <TextBox x:Name="txtId" HorizontalAlignment="Left" Margin="1055,50,0,0" Text="0" TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Height="50" Width="230" Visibility="Collapsed"/>
+        <TextBox Grid.Column="6" Grid.Row="4" x:Name="txtNombre" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Height="50" Width="230" FontSize="25" Background="#ffff83" Foreground="Black"/>
+        <TextBox Grid.Column="6" Grid.Row="5" x:Name="txtSector" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Height="50" Width="230" FontSize="25" Background="#ffff83" Foreground="Black"/>
+        <TextBox Grid.Column="6" Grid.Row="6" x:Name="txtCosto" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Height="50" Width="230" FontSize="25" Background="#ffff83" Foreground="Black"/>
+        <TextBox Grid.Column="6" Grid.Row="7" x:Name="txtCallePrin" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Height="50" Width="230" FontSize="25" Background="#ffff83" Foreground="Black"/>
+        <TextBox Grid.Column="6" Grid.Row="8" x:Name="txtCalleSecun" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Height="50" Width="230" FontSize="25" Background="#ffff83" Foreground="Black"/>
+
+
+        <Button Content="Nueva Parada" Background="#b6cc00" Grid.Column="5" Grid.Row="9" 
+                VerticalAlignment="Top" Height="72" Width="163" Click="NuevaParada_Click"
+                CornerRadius="20"/>
+        <Button Content="Guardar Parada" Background="#b6cc00" Grid.Column="6" Grid.Row="9" 
+                VerticalAlignment="Top" Height="72" Width="163" Click="GuardarParada_Click"
+                CornerRadius="20"/>
+        <Button Content="Eliminar Parada" Background="Red" Grid.Column="6" Grid.Row="9" 
+                VerticalAlignment="Top" Height="72" Width="163" Click="EliminarParada_Click"
+                CornerRadius="20" Margin="200,0,0,0"/>
+
+    </Grid>
+</Page>

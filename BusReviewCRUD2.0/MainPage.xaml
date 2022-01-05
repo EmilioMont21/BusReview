@@ -1,0 +1,92 @@
+﻿<Page
+    x:Class="BusReviewCRUD2._0.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BusReviewCRUD2._0"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
+    <Grid Background="#272537">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="330"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <RelativePanel Grid.Column="0">
+            <ScrollViewer>
+                <Grid Margin="30,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <RelativePanel Grid.Row="0" x:Name="BusReview" HorizontalAlignment="Center" Width="270">
+                        <TextBlock Text="Bus Review" FontSize="40" FontWeight="Bold" Margin="20"
+                               Foreground="White" Padding="0,8,15,8"/>
+                    </RelativePanel>
+                    <RelativePanel Grid.Row="1" Name="RPMenu" Background="Transparent" CornerRadius="0,30,30,0"
+                               Margin="0,0,0,25" Extensions:Mouse.Cursor="Hand" PointerEntered="RPMenu_PointerEntered"
+                               PointerExited="RPMenu_PointerExited" PointerPressed="RPMenu_PointerPressed">
+                        <Image Source="IMG/home.png" Width="35" Margin="20" Name="IconMenu"/>
+                        <TextBlock RelativePanel.RightOf="IconMenu" Text="Menu" FontSize="25" Foreground="White"
+                               FontWeight="Bold" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                    </RelativePanel>
+
+                    <RelativePanel Grid.Row="2" Name="RPBuses" Background="Transparent" CornerRadius="0,30,30,0"
+                               Margin="0,0,0,25" Extensions:Mouse.Cursor="Hand" PointerEntered="RPBuses_PointerEntered"
+                               PointerExited="RPBuses_PointerExited" PointerPressed="RPBuses_PointerPressed">
+                        <Image Source="IMG/bus.png" Width="35" Margin="20" Name="IconBus"/>
+                        <TextBlock RelativePanel.RightOf="IconBus" Text="Buses" FontSize="25" Foreground="White"
+                               FontWeight="Bold" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                    </RelativePanel>
+
+
+                    <RelativePanel Grid.Row="3" Name="RPParadas" Background="Transparent" CornerRadius="0,30,30,0"
+                               Margin="0,0,0,25" Extensions:Mouse.Cursor="Hand" PointerEntered="RPParadas_PointerEntered"
+                               PointerExited="RPParadas_PointerExited" PointerPressed="RPParadas_PointerPressed">
+                        <Image Source="IMG/parada.png" Width="35" Margin="20" Name="IconParada"/>
+                        <TextBlock RelativePanel.RightOf="IconParada" Text="Paradas" FontSize="25" Foreground="White"
+                               FontWeight="Bold" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                    </RelativePanel>
+
+
+                    <RelativePanel Grid.Row="4" Name="RPReportes" Background="Transparent" CornerRadius="0,30,30,0"
+                               Margin="0,0,0,25" Extensions:Mouse.Cursor="Hand" PointerEntered="RPReportes_PointerEntered"
+                               PointerExited="RPReportes_PointerExited" PointerPressed="RPReportes_PointerPressed">
+                        <Image Source="IMG/report.png" Width="35" Margin="20" Name="IconReportes"/>
+                        <TextBlock RelativePanel.RightOf="IconReportes" Text="Reportes" FontSize="25" Foreground="White"
+                               FontWeight="Bold" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                    </RelativePanel>
+
+
+                    <RelativePanel Grid.Row="5" Name="RPResenas" Background="Transparent" CornerRadius="0,30,30,0"
+                               Margin="0,0,0,25" Extensions:Mouse.Cursor="Hand" PointerEntered="RPResenas_PointerEntered"
+                               PointerExited="RPResenas_PointerExited" PointerPressed="RPResenas_PointerPressed">
+                        <Image Source="IMG/review.png" Width="35" Margin="20" Name="IconResena"/>
+                        <TextBlock RelativePanel.RightOf="IconResena" Text="Reseñas" FontSize="25" Foreground="White"
+                               FontWeight="Bold" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                    </RelativePanel>
+
+
+                    <RelativePanel Grid.Row="6" Name="RPUsuario" Background="Transparent" CornerRadius="0,30,30,0"
+                               Margin="0,0,0,25" Extensions:Mouse.Cursor="Hand" PointerEntered="RPUsuario_PointerEntered"
+                               PointerExited="RPUsuario_PointerExited" PointerPressed="RPUsuario_PointerPressed">
+                        <Image Source="IMG/user.png" Width="35" Margin="20" Name="IconUsuario"/>
+                        <TextBlock RelativePanel.RightOf="IconUsuario" Text="Usuarios" FontSize="25" Foreground="White"
+                               FontWeight="Bold" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                    </RelativePanel>
+                </Grid>
+            </ScrollViewer>
+        </RelativePanel>
+        <Grid Grid.Column="1" Background="Transparent" Margin="15" CornerRadius="30" Name="PageContent">
+            <Frame Name="MyFrame"></Frame>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,102 @@
+﻿<Page
+    x:Class="BusReviewCRUD2._0.View.Reportes"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BusReviewCRUD2._0.Models"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="6" Grid.Row="1" Background="#844eff" CornerRadius="20">
+            <TextBlock Text="Reportes" FontSize="35" Foreground="White" HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" FontWeight="Bold"/>
+        </StackPanel>
+
+        <ListView Margin="0,10,0,0" x:Name="Lista" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="7">
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" BorderBrush="#4a1ecb" BorderThickness="2">
+                        <TextBlock Text="ID" FontSize="25" Width="50" Foreground="Black" Margin="10,0,0,0"/>
+                        <TextBlock Text="Placa" FontSize="25" Width="150" Foreground="Black" Margin="10,0,0,0"/>
+                        <TextBlock Text="Usuario" FontSize="25" Width="200" Foreground="Black" Margin="10,0,0,0"/>
+
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:Reporte">
+                    <StackPanel Orientation="Horizontal" PointerPressed="Reporte_PointerPressed">
+                        <TextBlock Text="{x:Bind ReporteId}" Width="50" Foreground="Black" FontSize="25" Margin="10,0,0,0"/>
+                        <TextBlock Text="{x:Bind Placa}" Width="150" Foreground="Black" FontSize="25" Margin="10,0,0,0"/>
+                        <TextBlock Text="{x:Bind Usuario}" Width="200" Foreground="Black" FontSize="25" Margin="10,0,0,0"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Content="Cargar Reportes" Background="#4a1ecb"
+                Click="CargarReportes_Click" Height="110" Width="450" HorizontalAlignment="Center" CornerRadius="20" />
+        <TextBlock Grid.Column="5" Grid.Row="4" HorizontalAlignment="Left" Foreground="Black" Text="Placa :"
+                   TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="110" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Grid.Column="5" Grid.Row="5" HorizontalAlignment="Left" Foreground="Black" Text="Usuario :"
+                   TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="110" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Grid.Column="5" Grid.Row="6" HorizontalAlignment="Left" Foreground="Black" Text="Nota :"
+                   TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="141" FontSize="25" FontWeight="Bold" Margin="0,27,0,0"/>
+
+        <TextBlock Grid.Column="5" Grid.Row="8" HorizontalAlignment="Left" Foreground="Black" Text="Acoso :"
+                   TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="141" FontSize="25" FontWeight="Bold" />
+        <TextBlock Grid.Column="6" Grid.Row="8" HorizontalAlignment="Left" Foreground="Black" Text="Mala Conduccion :"
+                   TextWrapping="Wrap" VerticalAlignment="Top" Height="94" Width="166" FontSize="25" FontWeight="Bold" />
+        <CheckBox x:Name="cbAcoso"  Grid.Column="5" Height="43"  Grid.Row="8" Width="50"  
+                  FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <CheckBox x:Name="cbMalaCon" Grid.Column="6" Grid.Row="8" Margin="175,20,0,0"
+                  VerticalAlignment="Top" FontSize="25" FontWeight="Bold"/>
+
+
+
+        <TextBox x:Name="txtId" HorizontalAlignment="Left" Margin="1055,50,0,0" Text="0" TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Height="50" Width="230" Visibility="Collapsed"/>
+        <TextBox Grid.Column="6" Grid.Row="6" x:Name="txtNota" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" Foreground="Black" 
+                 VerticalAlignment="Top" Height="194" Width="443" FontSize="25" Background="#bb7eff" Margin="0,0,0,0" Grid.RowSpan="2"/>
+
+        <TextBox Grid.Column="6" Grid.Row="4" x:Name="txtPlaca" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Height="50" Width="230" FontSize="25" Background="#bb7eff" Foreground="Black" />
+        <TextBox Grid.Column="6" Grid.Row="5" x:Name="txtUsuario" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Height="50" Width="230" FontSize="25" Background="#bb7eff" Foreground="Black"/>
+        <Button Content="Nuevo reporte" Background="#4a1ecb" Grid.Column="5" Grid.Row="9" 
+                VerticalAlignment="Top" Height="72" Width="163" Click="NuevoReporte_Click"
+                CornerRadius="20" Margin="0,30,0,0"/>
+        <Button Content="Guardar reporte" Background="#4a1ecb" Grid.Column="6" Grid.Row="9" 
+                VerticalAlignment="Top" Height="72" Width="163" Click="GuardarReporte_Click"
+                CornerRadius="20" Margin="0,30,0,0"/>
+        <Button Content="Eliminar Reporte" Background="Red" Grid.Column="6" Grid.Row="9" 
+                VerticalAlignment="Top" Height="72" Width="163" Click="EliminarReporte_Click"
+                CornerRadius="20" Margin="250,30,0,0"/>
+    </Grid>
+</Page>
